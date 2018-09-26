@@ -1,0 +1,99 @@
+" | cociente resto dividendo divisor |
+
+dividendo:=(UIManager default request:'ingrese dividendo')asInteger.
+divisor:=(UIManager default request:'ingrese divisor') asInteger.
+
+cociente:=0.
+
+[ dividendo >= divisor ] whileTrue:[dividendo:= dividendo - divisor. cociente:=cociente + 1.].
+Transcript show:'el cociente es ',  cociente asString,'el resto es', dividendo  asString. 
+"
+"
+| producto multiplicador multiplicando |
+multiplicando :=(UIManager default request:'ingrese multiplicando') asInteger.
+multiplicador:=(UIManager default request:'ingrese multiplicador') asInteger.
+
+producto:=0.
+1 to: multiplicador do:[:i| producto:=producto+multiplicando. ].
+Transcript show:'el producto es', producto asString.
+"
+
+"| cal potencia base|
+
+base:=(UIManager default request:'ingrese la base')asInteger.
+potencia:=(UIManager default request:'ingrese la potencia') asInteger.
+cal:=1.
+
+1 to: potencia do:[:i|  cal:=cal*base. ].
+
+Transcript show:'la potencia es', cal asString."
+
+"| con comprobar ingreso |
+
+ingreso:=(UIManager default request:'ingres un numero para determinar si es primo o no') asInteger.
+con:=0.
+1 to: ingreso do:[:i| comprobar:=ingreso \\ i. (comprobar=0) ifTrue:[con:=con+1.]. ].
+( con=2) ifTrue:[Transcript show:'el numero es', ingreso asString, 'es primo' ]
+       ifFalse:[Transcript show:'el numero es', ingreso asString,'no es primo'].
+
+"
+
+
+"| ingreso con comprobar|
+
+ingreso:=(UIManager default request:'ingrese un numero para determinar si es par') asInteger.
+
+comprobar:=(ingreso \\ 2).
+
+(comprobar=0) ifTrue:[UIManager default inform: ingreso asString,'es par' ]
+              ifFalse:[UIManager default inform: ingreso asString,'no es par' ].
+"
+
+" | lista ingreso comprobar |
+
+ingreso:=(UIManager default request:'ingrese un numero para determinar sus multiplos')asInteger.
+lista:=OrderedCollection new.
+1 to: ingreso do:[:i| comprobar:=( ingreso \\ i). (comprobar=0)ifTrue:[ lista add:i ].].
+
+Transcript show:'los multiplos de ingreso ', ingreso asString, 'son ' , lista asString.
+"
+
+
+
+" | ingreso comprobar arreglo1 arreglo2 |
+
+arreglo1:= #( 2 3 5 7 ).
+arreglo2:=#( 0 0 0 0 ).
+[ ingreso ~=9999 ] whileTrue:[  
+	ingreso:=(UIManager default request:'ingrese un numero') asInteger.
+	
+	1 to: (arreglo1 size) do:[:i|  comprobar:= (ingreso \\ (arreglo1 at:i)).(comprobar=0)ifTrue:[arreglo2 at:i put:((arreglo2 at:i)+1) ].].
+    	
+	
+	
+	
+	].
+1 to: (arreglo1 size) do:[:i| Transcript show:'la cantidad de multiplos  de', (arreglo1 at:i) asString, ' es ', (arreglo2 at:i) asString . ]. 
+
+"
+
+"| ingreso determinar division |
+
+ingreso:=(UIManager default request:'ingrese un numero') asInteger.
+determinar:=0.
+1 to: (ingreso - 1 ) do:[:i| division:=(ingreso\\i). (division=0)ifTrue:[determinar:= determinar + i ]. ].
+
+(determinar=ingreso)ifTrue:[UIManager default inform:'el numero es ', ingreso asString , 'es perfecto']
+                     ifFalse:[UIManager default inform:'el numero es', ingreso asString, 'no es perfecto']. 
+
+"
+
+ | division ingreso1 ingreso2 determinar |
+
+ingreso1:=(UIManager default request:'ingrese un primer numero') asInteger.
+ingreso2:=(UIManager default request:'ingrese un segundo numero') asInteger.
+determinar:=0.
+1 to:( ingreso1 - 1 ) do:[:i| division:=(ingreso1\\i). (division=0)ifTrue:[determinar:=determinar + i.].].
+
+(determinar=ingreso2) ifTrue:[ UIManager default inform: 'los numeros ', ingreso1 asString, ' y ' ,  ingreso2 asString, 'son amigos'.]
+                      ifFalse:[UIManager default inform:'los numeros', ingreso1 asString, ' y ', ingreso2 asString , ' no son amigos']. "
