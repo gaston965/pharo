@@ -96,4 +96,4 @@ determinar:=0.
 1 to:( ingreso1 - 1 ) do:[:i| division:=(ingreso1\\i). (division=0)ifTrue:[determinar:=determinar + i.].].
 
 (determinar=ingreso2) ifTrue:[ UIManager default inform: 'los numeros ', ingreso1 asString, ' y ' ,  ingreso2 asString, 'son amigos'.]
-                      ifFalse:[UIManager default inform:'los numeros', ingreso1 asString, ' y ', ingreso2 asString , ' no son amigos']. "
+                      ifFalse:[UIManager default inform:'los numeros', ingreso1 asString, ' y ', ingreso2 asString , ' no son amigos']. " coso prueba git actualizar
