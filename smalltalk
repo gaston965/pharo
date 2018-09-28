@@ -96,4 +96,64 @@ determinar:=0.
 1 to:( ingreso1 - 1 ) do:[:i| division:=(ingreso1\\i). (division=0)ifTrue:[determinar:=determinar + i.].].
 
 (determinar=ingreso2) ifTrue:[ UIManager default inform: 'los numeros ', ingreso1 asString, ' y ' ,  ingreso2 asString, 'son amigos'.]
-                      ifFalse:[UIManager default inform:'los numeros', ingreso1 asString, ' y ', ingreso2 asString , ' no son amigos']. " coso prueba git actualizar lalal
+                      ifFalse:[UIManager default inform:'los numeros', ingreso1 asString, ' y ', ingreso2 asString , ' no son amigos']. 
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+" |arr cadena cantidad letra elemento|
+
+cadena:=(UIManager default request:'ingrese algo').
+
+arr:= Array new: cadena size.
+
+1 to: cadena size do: [ :i|
+    
+    
+    elemento:=Array new:2.
+    letra:=(cadena at:i).
+    cantidad:=(cadena select:[:j| j=(cadena at:i)]) size.
+    elemento at:1 put:letra;at:2 put:cantidad.
+    
+    arr at:i put: elemento.
+    
+     ].
+arr.
+
+
+"
+
+"| ingreso letraIngresada letraIngresada2 |
+
+ingreso:=(UIManager default request:'ingrese una frase').
+letraIngresada:=(UIManager default request:'ingrese una primer letra').
+letraIngresada2:=(UIManager default request:'ingresea una segunda letra').
+
+1 to: (ingreso size) do:[:i| ((ingreso at:i)=(letraIngresada at:1)) ifTrue:[ ingreso at:i put:(letraIngresada2 at:1).].].^ingreso 
+"
+
+ |lista2 ingresoFrase ingresoCaracteresProhibidos lista |
+
+ingresoFrase:= (UIManager default request:'ingrese una frase') .
+ingresoCaracteresProhibidos:= (UIManager default request:'ingrese la lista de caracteres prohidos').
+lista:=ingresoFrase .
+lista2:=ingresoFrase.
+"ingresoFrase do:[:i| lista add:i]."
+
+1 to:(ingresoFrase size) do:[:i| 
+	
+        1 to:( ingresoCaracteresProhibidos size) do:[:k| ((ingresoFrase at:i) =(ingresoCaracteresProhibidos at:k)) ifTrue:[ lista at:i  put:$.    ].].].
+1 to:(lista size) do:[:j| ((lista at:j) ~=$.)ifTrue:[lista2 at:j put:(lista at:j)].].^lista2
+
+
+"Transcript show: ingresoFrase asString .
+Transcript show: lista" 
+
+"|lista lista2|
+lista:=OrderedCollection new.
+lista2:=OrderedCollection new.
+#(1 2 3 4 5 6 7 8 9 10)
+    do: [:each | lista add:each]
+    separatedBy: [lista add: ','].
+lista do:[:i| (i~=',') ifTrue:[ lista2 add:i]].^lista2 "
