@@ -1,0 +1,13 @@
+THERE_BE_DRAGONS_HERE
+PrimitiveFailed: primitive #primSize: in MultiByteFileStream failed
+27 September 2018 11:32:02.726386 pm
+
+VM: unix - x86_64 - linux-gnu - CoInterpreter VMMaker.oscog-eem.2380 uuid: c76d37e1-445c-4e34-9796-fc836dfd50c9 May  9 2018
+StackToRegisterMappingCogit VMMaker.oscog-eem.2380 uuid: c76d37e1-445c-4e34-9796-fc836dfd50c9 May  9 2018
+VM: 201805090836 https://github.com/OpenSmalltalk/opensmalltalk-vm.git Date: Wed May 9 10:36:12 2018 CommitHash: 334be97 Plugins: 201805090836 https://github.com/OpenSmalltalk/opensmalltalk-vm.git
+
+Image: Pharo6.0 [Latest update: #60543]
+
+MultiByteFileStream(Object)>>primitiveFailed:
+	Receiver: MultiByteFileStream: '/home/gaston965/Descargas/pharolauncher/shared/PharoLauncher.changes...etc...
+	Arguments and temporary variables: 

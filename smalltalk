@@ -157,3 +157,48 @@ lista2:=OrderedCollection new.
     do: [:each | lista add:each]
     separatedBy: [lista add: ','].
 lista do:[:i| (i~=',') ifTrue:[ lista2 add:i]].^lista2 "
+---------------------------------------------------------------------------------------------------------------------------------------
+
+| sumaVeces verificacionFinal resg divi arregloDivision arreglodeDiez ingreso multiPar sumaTodos |
+"divi:=200890.
+resg:= OrderedCollection  new.
+
+[divi>10] whileTrue:[    resg add:((divi \\ 10)).
+			               divi:= (divi // 10). 
+			               
+			                 ]. 
+		   
+		        arregloDivision:= OrderedCollection new.
+		arregloDivision add: divi.           
+		(resg size) to:1 by:-1  do:[:i| arregloDivision add: (resg at:i). ].^arregloDivision"   
+
+
+arreglodeDiez:= Array new:11.
+sumaTodos:=0.
+sumaVeces:=0.
+arregloDivision:= OrderedCollection new.
+resg:=OrderedCollection new.
+1 to: (arreglodeDiez size) do:[:i| 
+	
+    arreglodeDiez at:i put:((UIManager default request:'ingrese el elemento numero ', i asString , ' de 11 ')asInteger).
+].
+
+ (arreglodeDiez size) to: 1 by:-1 do:[:i| "sumaTodos:= (sumaTodos +  (arreglodeDiez at:i))"((i \\ 2)=0) ifTrue:[ multiPar:=((arreglodeDiez at:i) * 2). 
+	                                                       (multiPar>10) ifTrue:[ divi:=(arreglodeDiez at:i). [divi>10] whileTrue:[
+			                                                  resg add:(divi \\ 10).
+			                                                  divi:= (divi // 10).]. 
+			                                            arregloDivision add: divi.           
+															(resg size) to:1 by:-1  do:[:j| arregloDivision add: (resg at:j). ].
+																		arregloDivision do:[:k| sumaVeces:=sumaVeces + k.].
+																		sumaTodos:=sumaTodos + sumaVeces.
+		
+		
+		].]
+           ifFalse:[ sumaTodos:=(sumaTodos + (arreglodeDiez at:i)).].
+		
+		
+		                                      ].
+	verificacionFinal:=(sumaTodos \\ 10).
+	(verificacionFinal=0)ifTrue:[^true]
+	                     ifFalse:[^false].   
+ 
