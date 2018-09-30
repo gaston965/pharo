@@ -201,4 +201,28 @@ resg:=OrderedCollection new.
 	verificacionFinal:=(sumaTodos \\ 10).
 	(verificacionFinal=0)ifTrue:[^true]
 	                     ifFalse:[^false].   
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+| lista ingreso1 ingreso2 |
+	
+	ingreso1:=(UIManager default request:'ingrese una primer frase').
+	ingreso2:=(UIManager default request:'ingrese una segunda frase').
+	lista:=OrderedCollection new.
+	
+	1 to:(ingreso1 size) do:[:i| ((ingreso1 at:i) isVowel) ifTrue:[ lista add: (ingreso1 at:i)].].
+	
+	1 to: (ingreso2 size) do:[:i|  
+		
+		
+		
+		
+		1 to:(lista size) do:[:j|
+		
+		
+		
+		
+		((ingreso2 at:i)=( lista at:j)) ifTrue:[ ingreso2 at:i put:$. ].].].^ingreso2
+	
+	                     
  
